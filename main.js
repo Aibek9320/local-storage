@@ -37,12 +37,16 @@ const logfunc = () => {
         .forEach(el => {
             userlog[el.type] = el.value;
         })
-        // const locstorageinfo = localStorage.getItem('user')
-        USER.filter(el => el.email )
+        const locstorageinfo = JSON.parse(localStorage.getItem('user'))
+        // USER.filter(el => el.email )
         
         console.log(userlog);
-        console.log(USER)
-        signupData()
+        console.log(locstorageinfo)
+        if(userlog.email === locstorageinfo.email && userlog.password === locstorageinfo.password){
+                console.log('success');
+        } else{
+            console.log('not correct');
+        }
     })
 }
 logfunc()
